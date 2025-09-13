@@ -1,0 +1,16 @@
+{
+  "name": "project-management-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js",
+    "format": "prettier . --write"
+  },
+  "author": "Nikunj borad",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}
