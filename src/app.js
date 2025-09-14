@@ -18,6 +18,11 @@ app.use(
   }),
 );
 
+// Import routes
+import healthCheckRouter from "./routes/healthcheck.routes.js";
+
+app.use("/api/v1/healthcheck", healthCheckRouter);
+
 // Basic route
 app.get("/", (req, res) => {
   res.send("Hello, World!");
