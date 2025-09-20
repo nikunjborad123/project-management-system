@@ -20,8 +20,11 @@ app.use(
 
 // Import routes
 import healthCheckRouter from "./routes/healthcheck.routes.js";
+import authRouter from "./routes/auth.routes.js";
 
+// Use routes
 app.use("/api/v1/healthcheck", healthCheckRouter);
+app.use("/api/v1/auth", authRouter);
 
 // Basic route
 app.get("/", (req, res) => {

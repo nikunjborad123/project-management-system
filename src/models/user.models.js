@@ -76,7 +76,7 @@ userSchema.pre("save", async function (next) {
 
 // In build method to compare the entered password with correct password
 userSchema.methods.isPasswordCorrect = async function (password) {
-  await bcrypt.compare(password, this.password);
+  return await bcrypt.compare(password, this.password);
 };
 
 userSchema.methods.generateAccessToken = function () {
@@ -104,11 +104,11 @@ userSchema.methods.generateTemporaryToken = function () {
   const unHashedToken = crypto.randomBytes(20).toString("hex");
 
   const hashedToken = crypto
-    .createHash(unHashedToken)
+    .createHash("sha256")
     .update(unHashedToken)
     .digest("hex");
 
-  const tokenExpiry = new Date() + 20 * 60 * 1000; // Add 20 minutes
+  const tokenExpiry = Date.now() + 20 * 60 * 1000; // Add 20 minutes
 
   return { unHashedToken, hashedToken, tokenExpiry };
 };
